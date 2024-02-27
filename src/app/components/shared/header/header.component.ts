@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Adress } from 'src/app/services/adress.service';
 import { AdressInterface } from '../../../models/adress.interface';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'header',

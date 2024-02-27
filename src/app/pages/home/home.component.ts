@@ -1,38 +1,25 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Adress } from 'src/app/services/adress.service';
-import * as L from 'leaflet';
+import { MapService } from 'src/app/services/map.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
-  private map: any;
+export class HomeComponent implements OnInit, AfterViewInit {
+  constructor(
+    private http: HttpClient,
+    private getAdressApi: Adress,
+    private mapService: MapService
+  ) {}
 
-  constructor(private getAdress: Adress, private http: HttpClient) {}
-
-  public initMap(): void {
-    let myIcon = L.icon({
-      iconUrl: '../../../assets/marker-icon.png',
-      iconSize: [20, 40],
-      popupAnchor: [-3, -76],
-      shadowUrl: '../../../assets/marker-shadow.png',
-      shadowSize: [68, 95],
-      shadowAnchor: [22, 94],
-    });
-
-    this.map = L.map('map').setView([-3.1019, -60.025]).setZoom(16);
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(this.map);
-
-    L.marker([-3.1019, -60.025], { icon: myIcon }).addTo(this.map);
-  }
+  public map!: any;
+  public lat: number = 40.75909;
+  public long: number = -73.97669;
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    this.initMap();
+    this.mapService.initMap(this.lat, this.long);
   }
 }
