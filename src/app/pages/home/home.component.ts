@@ -14,12 +14,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private mapService: MapService
   ) {}
 
-  public map!: any;
-  public lat: number = 40.75909;
-  public long: number = -73.97669;
   ngOnInit(): void {}
-
   ngAfterViewInit(): void {
-    this.mapService.initMap(this.lat, this.long);
+    this.mapService.initMap();
   }
 }
