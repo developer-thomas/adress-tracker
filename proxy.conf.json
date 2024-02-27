@@ -1,0 +1,9 @@
+{
+  "*/api/*": {
+    "target": "https://api.ip2location.io",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": { "^/api": "" }
+  }
+}

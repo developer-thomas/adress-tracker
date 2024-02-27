@@ -1,0 +1,27 @@
+<section id="ip-tracker__container">
+  <div class="ip-tracker__data">
+    <h1>IP Address Tracker</h1>
+    <form>
+      <input type="text" [value]="locationData.ip" #ipInput />
+      <button type="button" (click)="submitIp(ipInput.value)">></button>
+    </form>
+    <section class="ip-tracker__data-shower">
+      <div>
+        <p>IP Adress</p>
+        <span> {{ locationData.ip }}</span>
+      </div>
+      <div>
+        <p>Location</p>
+        <span>{{ locationData.location.region }}</span>
+      </div>
+      <div>
+        <p>Timezone</p>
+        <span>{{ locationData.location.timezone }}</span>
+      </div>
+      <div>
+        <p>ISP</p>
+        <span>{{ locationData.isp }}</span>
+      </div>
+    </section>
+  </div>
+</section>
