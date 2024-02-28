@@ -22,14 +22,17 @@ export class HeaderComponent implements OnInit {
   public submitIp(value: string) {
     this.getAdressApi.getIpAddress(value).subscribe((res) => {
       this.locationData = res;
-
+      // TRAVEI AQUI
+      // O que eu preciso pra mudar a visualização do mapa quando o usuário enviar o input?
       // quero uma função que seja chamada quando clicar no botão de enviar ip
-      // essa função terá dois parâmetros contendo a lat e long
-      // esses parâmetros devem ser enviados como valor para os objetos de lat e lng do home component
+      // essa função terá dois parâmetros contendo a lat e long que for obtido por esta response
+      // esses parâmetros devem ser enviados como valor para os objetos de lat e lng do header component
       this.mapService.changeView(res.location.lat, res.location.lng);
     });
   }
 }
+
+// Essa requisição ta dando erro
 
 // https://meuip.com/api/meuip.php
 // var xmlhttp = new XMLHttpRequest();

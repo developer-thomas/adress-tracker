@@ -29,12 +29,11 @@ export class MapService {
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(this.map);
 
-    // L.marker([lat, long], { icon: myIcon }).addTo(this.map);
     L.marker([this.lat, this.long], { icon: myIcon }).addTo(this.map);
   }
 
   public changeView(lat: number, long: number) {
-    this.map.panTo(new L.LatLng(lat, long));
+    this.map.flyTo(new L.LatLng(lat, long));
     L.marker([lat, long], { icon: myIcon }).addTo(this.map);
   }
 }
